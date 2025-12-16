@@ -5,7 +5,6 @@ A collection of Java exercises and challenges I'm working through to learn and p
 ## Sources
 
 - [Java Programming MOOC](https://java-programming.mooc.fi/) by University of Helsinki
-- Various coding challenge platforms
 
 ## Purpose
 

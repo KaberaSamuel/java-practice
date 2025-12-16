@@ -3,16 +3,13 @@ import java.nio.file.Paths;
 
 public class Program {
     public static void main(String[] args) {
-        System.out.println("Enter file name: ");
         Scanner inputReader = new Scanner(System.in);
-        String file = inputReader.nextLine();
-
         System.out.println("Enter the team: ");
         String team = inputReader.nextLine();
 
-        analyseGame(file, team);
+        analyseGame("data.csv", team);
 
-        // close open scanners
+        // close reader scanner
         inputReader.close();
     }
 
@@ -31,11 +28,12 @@ public class Program {
                     occurrences++;
 
                     String[] gameSections = row.split(",");
+
                     int teamIndex = getArrayIndex(gameSections, team);
-                    int teamScore = Integer.valueOf(gameSections[teamIndex + 1]);
+                    int teamScore = Integer.valueOf(gameSections[teamIndex + 2]);
 
                     int opponentIndex = 1 - teamIndex;
-                    int opponentScore = Integer.valueOf(gameSections[opponentIndex + 1]);
+                    int opponentScore = Integer.valueOf(gameSections[opponentIndex + 2]);
 
                     if (teamScore > opponentScore) {
                         wins++;
@@ -46,13 +44,21 @@ public class Program {
 
             }
 
+            // if team is not in games
+            if (occurrences == 0) {
+                System.out.println("Team not found!");
+                return;
+            }
+
             // print results to user
-            System.out.println("Games: " + occurrences);
+            System.out.println("\n" + "Team " + team + " perfomance");
+            System.out.println("Number of games: " + occurrences);
             System.out.println("Wins: " + wins);
             System.out.println("Ties: " + ties);
+            System.out.println("Loses: " + (occurrences - wins - ties));
 
         } catch (Exception e) {
-            System.out.println("Error reading file: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
