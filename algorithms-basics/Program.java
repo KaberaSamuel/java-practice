@@ -1,7 +1,9 @@
 public class Program {
     public static void main(String[] args) {
-        int[] numbers = { 6, 5, 8, 7, 11 };
-        System.out.println(indexOfSmallest(numbers));
+        int[] numbers = { -1, 6, 9, 8, 12 };
+        System.out.println(indexOfSmallestFrom(numbers, 0));
+        System.out.println(indexOfSmallestFrom(numbers, 1));
+        System.out.println(indexOfSmallestFrom(numbers, 2));
     }
 
     public static int smallest(int[] array) {
@@ -21,6 +23,27 @@ public class Program {
         int smallestItemIndex = 0;
 
         for (int i = 0; i < array.length; i++) {
+            int currentNumber = array[i];
+            int smallestNumberSofar = array[smallestItemIndex];
+
+            if (currentNumber < smallestNumberSofar) {
+                smallestItemIndex = i;
+            }
+        }
+
+        return smallestItemIndex;
+    }
+
+    public static int indexOfSmallestFrom(int[] array, int startIndex) {
+        // start with the last item
+        int smallestItemIndex = array.length - 1;
+
+        for (int i = 0; i < array.length; i++) {
+            // skip items that are below the range
+            if (i < startIndex) {
+                continue;
+            }
+
             int currentNumber = array[i];
             int smallestNumberSofar = array[smallestItemIndex];
 
