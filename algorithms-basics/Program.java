@@ -2,15 +2,13 @@ import java.util.Arrays;
 
 public class Program {
     public static void main(String[] args) {
-        int[] numbers = { 3, 2, 5, 4, 8 };
+        int[] numbers = { 8, 3, 7, 9, 1, 2, 4 };
+        System.out.println("Sorting algorithm");
+        System.out.println("Original array: \n" + Arrays.toString(numbers));
 
-        System.out.println(Arrays.toString(numbers));
-
-        Helper.swap(numbers, 1, 0);
-        System.out.println(Arrays.toString(numbers));
-
-        Helper.swap(numbers, 0, 3);
-        System.out.println(Arrays.toString(numbers));
+        System.out.println();
+        System.out.println("Iterations");
+        Sorter.sort(numbers);
     }
 
 }
