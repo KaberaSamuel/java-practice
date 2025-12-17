@@ -1,14 +1,12 @@
+import java.util.Scanner;
+
 public class Program {
     public static void main(String[] args) {
-        TodoList list = new TodoList();
-        list.add("read the course material");
-        list.add("watch the latest fool us");
-        list.add("take it easy");
+        TodoList todo = new TodoList();
+        Scanner inputReader = new Scanner(System.in);
+        UserInterface ui = new UserInterface(todo, inputReader);
 
-        list.print();
-        list.remove(2);
-
-        System.out.println();
-        list.print();
+        // start program
+        ui.start();
     }
 }
