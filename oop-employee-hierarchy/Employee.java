@@ -2,9 +2,9 @@ import java.text.MessageFormat;
 
 public class Employee {
 
-    private int id;
-    private String name;
-    private int salary;
+    protected int id;
+    protected String name;
+    protected int salary;
 
     public Employee(int id, String name, int salary) {
         this.id = id;
@@ -30,7 +30,7 @@ public class Employee {
     }
 
     public void processFeedback(String feedback) {
-        String template = "Employee {0} recieved feedback: {1}";
+        String template = "{0} recieved feedback: {1}";
         System.out.println(MessageFormat.format(template, this.name, feedback));
     }
 
