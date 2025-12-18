@@ -1,7 +1,13 @@
+import java.util.Arrays;
+
 public class BinarySearch {
     public static int getElement(int[] array, int element) {
         // sort array in ascending order
         Sorter.sort(array);
+
+        System.out.println("Array: " + Arrays.toString(array));
+        System.out.println("Element to look for: " + element);
+        System.out.println();
 
         int left = 0; // Start of search range
         int right = array.length - 1; // End of search range
