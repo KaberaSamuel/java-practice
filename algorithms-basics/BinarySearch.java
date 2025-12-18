@@ -1,72 +1,32 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class BinarySearch {
-
     public static int getElement(int[] array, int element) {
         // sort array in ascending order
         Sorter.sort(array);
-        System.out.println(Arrays.toString((array)));
 
-        ArrayList<Integer> numbers = getListFromArray(array);
+        int left = 0; // Start of search range
+        int right = array.length - 1; // End of search range
 
-        while (true) {
-            int middleIndex = getMiddleIndex(numbers);
-            int middleElement = numbers.get(middleIndex);
-            System.out.println(numbers);
-            System.out.println("Index: " + middleIndex + ", Element: " + middleElement);
+        while (left <= right) {
+            int middle = left + (right - left) / 2;
+            int middleElement = array[middle];
+
+            System.out.println("Searching between index " + left + " and " + right);
+            System.out.println("Middle index: " + middle + ", Element: " + middleElement);
 
             if (middleElement == element) {
-                return middleIndex;
-            }
-
-            // check if there are not more items
-            if (numbers.size() < 2) {
-                return -1;
+                return middle; // Return actual index
             }
 
             if (middleElement < element) {
-                numbers = getUpperSublist(numbers, middleIndex);
+                left = middle + 1; // Search right half
+                System.out.println("Going right, new left = " + left);
             } else {
-                numbers = getLowerSublist(numbers, middleIndex);
+                right = middle - 1; // Search left half
+                System.out.println("Going left, new right = " + right);
             }
+            System.out.println();
         }
 
-    }
-
-    public static int getMiddleIndex(ArrayList<Integer> list) {
-        int len = list.size();
-
-        if (len < 2) {
-            return 0;
-        }
-
-        if (isEven((len))) {
-            return (len / 2) - 1;
-        }
-
-        return (len - 1) / 2;
-    }
-
-    public static boolean isEven(int number) {
-        return number % 2 == 0;
-    }
-
-    public static ArrayList<Integer> getLowerSublist(ArrayList<Integer> list, int middleIndex) {
-        return new ArrayList<>(list.subList(0, middleIndex));
-    }
-
-    public static ArrayList<Integer> getUpperSublist(ArrayList<Integer> list, int middleIndex) {
-        return new ArrayList<>(list.subList(middleIndex + 1, list.size()));
-    }
-
-    public static ArrayList<Integer> getListFromArray(int[] array) {
-        ArrayList<Integer> list = new ArrayList<>();
-
-        for (int item : array) {
-            list.add(item);
-        }
-
-        return list;
+        return -1; // Not found
     }
 }
