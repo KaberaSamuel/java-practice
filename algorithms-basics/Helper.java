@@ -1,4 +1,15 @@
 public class Helper {
+    public static int indexOf(int[] array, int item) {
+        for (int i = 0; i < array.length; i++) {
+            int element = array[i];
+
+            if (element == item) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 
     public static int smallest(int[] array) {
         // initialize smallest with the first number
@@ -57,5 +68,4 @@ public class Helper {
         array[index1] = item2;
         array[index2] = item1;
     }
-
 }
