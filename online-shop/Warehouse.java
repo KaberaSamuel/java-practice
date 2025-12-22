@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
 
 public class Warehouse {
     private ArrayList<Product> products;
@@ -43,11 +42,11 @@ public class Warehouse {
         return false;
     }
 
-    public Set<String> products() {
-        return this.stockBalance.keySet();
+    public ArrayList<Product> products() {
+        return this.products;
     }
 
-    private Product getProduct(String productName) {
+    public Product getProduct(String productName) {
         for (Product product : this.products) {
             if (product.getName().equals(productName)) {
                 return product;
