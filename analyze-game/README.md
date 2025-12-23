@@ -6,8 +6,6 @@ A Java program that reads game statistics from a CSV file and displays team perf
 
 **From:** Java Programming MOOC - Part 4
 
-**Task:** Create a program that reads match statistics from a file and displays wins, losses, and ties for a specified team.
-
 ## Features
 
 - Reads game data from CSV file

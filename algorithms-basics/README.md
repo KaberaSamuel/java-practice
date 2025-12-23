@@ -6,7 +6,7 @@ Short examples of basic algorithms in Java: a simple selection-based sorting rou
 
 **From:** Java Programming MOOC Part 7
 
-**Task:** Implement a `Sorter` that orders an integer array (selection-style) and a `BinarySearch` that finds an element in a sorted array. Keep the implementations clear and print intermediate steps for learning.
+**Motive** Practice working with algorithms.
 
 ## Class Structure
 
