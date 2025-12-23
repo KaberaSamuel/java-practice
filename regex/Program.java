@@ -5,6 +5,7 @@ public class Program {
 
         Scanner reader = new Scanner(System.in);
         Checker checker = new Checker();
+        System.out.println("Time of day checker");
 
         while (true) {
             System.out.print("Enter a string: ");
@@ -14,7 +15,7 @@ public class Program {
                 break;
             }
 
-            System.out.println(checker.isDayOfWeek(input));
+            System.out.println(checker.timeOfDay(input));
         }
 
         reader.close();
